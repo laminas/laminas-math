@@ -1,18 +1,17 @@
 <?php
+
 /**
- * Zend Framework (http://framework.zend.com/)
- *
- * @link      http://github.com/zendframework/zf2 for the canonical source repository
- * @copyright Copyright (c) 2005-2015 Zend Technologies USA Inc. (http://www.zend.com)
- * @license   http://framework.zend.com/license/new-bsd New BSD License
+ * @see       https://github.com/laminas/laminas-math for the canonical source repository
+ * @copyright https://github.com/laminas/laminas-math/blob/master/COPYRIGHT.md
+ * @license   https://github.com/laminas/laminas-math/blob/master/LICENSE.md New BSD License
  */
 
-namespace ZendTest\Math\BigInteger;
+namespace LaminasTest\Math\BigInteger;
 
-use Zend\Math\BigInteger\BigInteger as BigInt;
+use Laminas\Math\BigInteger\BigInteger as BigInt;
 
 /**
- * @group      Zend_Math
+ * @group      Laminas_Math
  */
 class BigIntegerTest extends \PHPUnit_Framework_TestCase
 {
@@ -23,7 +22,7 @@ class BigIntegerTest extends \PHPUnit_Framework_TestCase
         }
 
         $bigInt = BigInt::factory('Bcmath');
-        $this->assertInstanceOf('Zend\Math\BigInteger\Adapter\Bcmath', $bigInt);
+        $this->assertInstanceOf('Laminas\Math\BigInteger\Adapter\Bcmath', $bigInt);
     }
 
     public function testFactoryCreatesGmpAdapter()
@@ -33,7 +32,7 @@ class BigIntegerTest extends \PHPUnit_Framework_TestCase
         }
 
         $bigInt = BigInt::factory('Gmp');
-        $this->assertInstanceOf('Zend\Math\BigInteger\Adapter\Gmp', $bigInt);
+        $this->assertInstanceOf('Laminas\Math\BigInteger\Adapter\Gmp', $bigInt);
     }
 
     public function testFactoryUsesDefaultAdapter()
@@ -41,12 +40,12 @@ class BigIntegerTest extends \PHPUnit_Framework_TestCase
         if (!extension_loaded('bcmath') && !extension_loaded('gmp')) {
             $this->markTestSkipped('Missing bcmath or gmp extensions');
         }
-        $this->assertInstanceOf('Zend\Math\BigInteger\Adapter\AdapterInterface', BigInt::factory());
+        $this->assertInstanceOf('Laminas\Math\BigInteger\Adapter\AdapterInterface', BigInt::factory());
     }
 
     public function testFactoryUnknownAdapterRaisesException()
     {
-        $this->setExpectedException('Zend\Math\Exception\ExceptionInterface');
+        $this->setExpectedException('Laminas\Math\Exception\ExceptionInterface');
         BigInt::factory('unknown');
     }
 }

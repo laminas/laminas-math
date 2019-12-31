@@ -1,16 +1,16 @@
-# Introduction to Zend\\Math
+# Introduction to Laminas\\Math
 
-`Zend\Math` namespace provides general mathematical functions. So far the supported functionalities
+`Laminas\Math` namespace provides general mathematical functions. So far the supported functionalities
 are:
 
-* `Zend\Math\Rand`, a random number generator;
-* `Zend\Math\BigInteger`, a library to manage big integers.
+* `Laminas\Math\Rand`, a random number generator;
+* `Laminas\Math\BigInteger`, a library to manage big integers.
 
 We expect to add more functionalities in the future.
 
 ## Random number generator
 
-`Zend\Math\Rand` implements a random number generator that is able to generate random numbers for
+`Laminas\Math\Rand` implements a random number generator that is able to generate random numbers for
 general purpose usage and for cryptographic scopes. To generate good random numbers this component
 uses different approaches. If PHP 7 is running we used the cryptographically secure pseudo-random
 functions [random_bytes](http://php.net/manual/en/function.random-bytes.php) and
@@ -20,7 +20,7 @@ If you don't have a secure random source in your environment the component
 will use the library [ircmaxell/RandomLib](https://github.com/ircmaxell/RandomLib) with a
 medium strength generator.
 
-The `Zend\Math\Rand` class offers the following methods to generate random values:
+The `Laminas\Math\Rand` class offers the following methods to generate random values:
 
 * `getBytes($length, $strong = false)` to generate a random set of `$length` bytes;
 * `getBoolean($strong = false)` to generate a random boolean value (true or false);
@@ -37,10 +37,10 @@ security implementation.
 If `$strong` is set to true and you try to generate random values in a PHP environment without a
 secure pseudo-random source the component will throw an Exception.
 
-Below we reported an example on how to generate random data using `Zend\Math\Rand`.
+Below we reported an example on how to generate random data using `Laminas\Math\Rand`.
 
 ```php
-use Zend\Math\Rand;
+use Laminas\Math\Rand;
 
 $bytes = Rand::getBytes(32, true);
 printf("Random bytes (in Base64): %s\n", base64_encode($bytes));
@@ -60,16 +60,16 @@ printf("Random string in latin alphabet: %s\n", $string);
 
 ## Big integers
 
-`Zend\Math\BigInteger\BigInteger` offers a class to manage arbitrary length integer. PHP supports
+`Laminas\Math\BigInteger\BigInteger` offers a class to manage arbitrary length integer. PHP supports
 integer numbers with a maximum value of `PHP_INT_MAX`. If you need to manage integers bigger than
 `PHP_INT_MAX` you have to use external libraries or PHP extensions like
 [GMP](http://www.php.net/manual/en/book.gmp.php) or [BC
 Math](http://www.php.net/manual/en/book.bc.php).
 
-`Zend\Math\BigInteger\BigInteger` is able to manage big integers using the GMP or the BC Math
+`Laminas\Math\BigInteger\BigInteger` is able to manage big integers using the GMP or the BC Math
 extensions as adapters.
 
-The mathematical functions implemented in `Zend\Math\BigInteger\BigInteger` are:
+The mathematical functions implemented in `Laminas\Math\BigInteger\BigInteger` are:
 
 * `add($leftOperand, $rightOperand)`, add two big integers;
 * `sub($leftOperand, $rightOperand)`, subtract two big integers;
@@ -92,8 +92,8 @@ Below is reported an example using the BC Math adapter to calculate the sum of t
 numbers with 100 digits.
 
 ```php
-use Zend\Math\BigInteger\BigInteger;
-use Zend\Math\Rand;
+use Laminas\Math\BigInteger\BigInteger;
+use Laminas\Math\Rand;
 
 $bigInt = BigInteger::factory('bcmath');
 
@@ -113,8 +113,8 @@ Below is reported another example using the BC Math adapter to generate the bina
 a negative big integer of 100 digits.
 
 ```php
-use Zend\Math\BigInteger\BigInteger;
-use Zend\Math\Rand;
+use Laminas\Math\BigInteger\BigInteger;
+use Laminas\Math\Rand;
 
 $bigInt = BigInteger::factory('bcmath');
 
