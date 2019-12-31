@@ -1,17 +1,17 @@
 # Big Integers
 
-`Zend\Math\BigInteger\BigInteger` offers a class to manage arbitrary length
+`Laminas\Math\BigInteger\BigInteger` offers a class to manage arbitrary length
 integers. PHP supports integer numbers with a maximum value of `PHP_INT_MAX`, a
 value defined by your processor architecture and available memory. If you need
 to manage integers bigger than `PHP_INT_MAX`, you need to use external libraries
 or PHP extensions such as [GMP](http://php.net/gmp) or [BC Math](http://php.net/bc).
 
-`Zend\Math\BigInteger\BigInteger` is able to manage big integers using either
+`Laminas\Math\BigInteger\BigInteger` is able to manage big integers using either
 the GMP or the BC Math extensions as adapters.
 
 ## Methods available
 
-The mathematical functions implemented in `Zend\Math\BigInteger\BigInteger` are:
+The mathematical functions implemented in `Laminas\Math\BigInteger\BigInteger` are:
 
 - `add($leftOperand, $rightOperand)`: add two big integers.
 - `sub($leftOperand, $rightOperand)`: subtract two big integers.
@@ -41,8 +41,8 @@ The example below illustrates using the BC Math adapter to calculate the sum of
 two random integers with 100 digits each.
 
 ```php
-use Zend\Math\BigInteger\BigInteger;
-use Zend\Math\Rand;
+use Laminas\Math\BigInteger\BigInteger;
+use Laminas\Math\Rand;
 
 $bigInt = BigInteger::factory('bcmath');
 
@@ -62,8 +62,8 @@ Next is an example using the BC Math adapter to generate the binary
 representation of a negative big integer containing 100 digits.
 
 ```php
-use Zend\Math\BigInteger\BigInteger;
-use Zend\Math\Rand;
+use Laminas\Math\BigInteger\BigInteger;
+use Laminas\Math\Rand;
 
 $bigInt = BigInteger::factory('bcmath');
 

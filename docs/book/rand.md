@@ -1,6 +1,6 @@
 # Random Number Generation
 
-`Zend\Math\Rand` implements a random number generator that is able to generate
+`Laminas\Math\Rand` implements a random number generator that is able to generate
 random numbers for general purpose usage and for cryptographic scopes. To
 generate good random numbers, this component uses different approaches. If PHP 7
 is running, we use the cryptographically secure pseudo-random functions
@@ -15,7 +15,7 @@ regarding extensions it can use.
 
 ## Methods available
 
-The `Zend\Math\Rand` class offers the following methods to generate random values:
+The `Laminas\Math\Rand` class offers the following methods to generate random values:
 
 - `getBytes($length)` to generate a random set of `$length` bytes;
 - `getBoolean()` to generate a random boolean value (true or false);
@@ -27,10 +27,10 @@ The `Zend\Math\Rand` class offers the following methods to generate random value
 
 ## Examples
 
-The example below demonstrates generating random data using `Zend\Math\Rand`:
+The example below demonstrates generating random data using `Laminas\Math\Rand`:
 
 ```php
-use Zend\Math\Rand;
+use Laminas\Math\Rand;
 
 $bytes = Rand::getBytes(32);
 printf("Random bytes (in Base64): %s\n", base64_encode($bytes));
