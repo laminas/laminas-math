@@ -1,16 +1,15 @@
 <?php
+
 /**
- * Zend Framework (http://framework.zend.com/)
- *
- * @link      http://github.com/zendframework/zf2 for the canonical source repository
- * @copyright Copyright (c) 2005-2015 Zend Technologies USA Inc. (http://www.zend.com)
- * @license   http://framework.zend.com/license/new-bsd New BSD License
+ * @see       https://github.com/laminas/laminas-math for the canonical source repository
+ * @copyright https://github.com/laminas/laminas-math/blob/master/COPYRIGHT.md
+ * @license   https://github.com/laminas/laminas-math/blob/master/LICENSE.md New BSD License
  */
 
-namespace ZendTest\Math\BigInteger\Adapter;
+namespace LaminasTest\Math\BigInteger\Adapter;
 
+use Laminas\Math\BigInteger\Adapter\AdapterInterface;
 use PHPUnit\Framework\TestCase;
-use Zend\Math\BigInteger\Adapter\AdapterInterface;
 
 abstract class AbstractTestCase extends TestCase
 {
@@ -147,7 +146,7 @@ abstract class AbstractTestCase extends TestCase
 
     public function testDivisionByZeroRaisesException()
     {
-        $this->expectException('Zend\Math\BigInteger\Exception\DivisionByZeroException');
+        $this->expectException('Laminas\Math\BigInteger\Exception\DivisionByZeroException');
         $this->expectExceptionMessage('Division by zero');
         $this->adapter->div('12345', '0');
     }
@@ -364,7 +363,7 @@ abstract class AbstractTestCase extends TestCase
                 'FV31FwuflLcgcehcYduXOp0sUSL/frxiCjv0lGfFOReOCZjSvGUnltTXMgppIO4p2Ij5dSQolfwW9/xby+yLFg6s=',
 
                 // negative binary, two's complement
-                '/yMGxfR3xo0T8eZnZTpdMc7x4siOgXJqjkSJ3IznmRnhCKXR2HZ0+oBnbj0dhZxjwNZJ9+un4yxNNcZ5LZfI+q' .
+                '/yMGxfR3xo0T8eZnZTpdMc7x4siOgXJqjkSJ3IznmRnhCKXR2HZ0+oBnbj0dhZxjwNZJ9+un4yxNNcZ5LLaminasI+q' .
                 'iCuj0YGtI344Xo54kaMVi067dAIFDnfXEC2uYOsbocfZnLUOa2GkrKM31lt8R1id3Borb12oD6QgDpDQTdOnxV',
             ],
         ];

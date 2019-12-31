@@ -1,42 +1,19 @@
 {
-    "name": "zendframework/zend-math",
+    "name": "laminas/laminas-math",
     "description": "Create cryptographically secure pseudo-random numbers, and manage big integers",
     "license": "BSD-3-Clause",
     "keywords": [
-        "zf",
-        "zendframework",
+        "laminas",
         "math"
     ],
+    "homepage": "https://laminas.dev",
     "support": {
-        "docs": "https://docs.zendframework.com/zend-math/",
-        "issues": "https://github.com/zendframework/zend-math/issues",
-        "source": "https://github.com/zendframework/zend-math",
-        "rss": "https://github.com/zendframework/zend-math/releases.atom",
-        "chat": "https://zendframework-slack.herokuapp.com",
-        "forum": "https://discourse.zendframework.com/c/questions/components"
-    },
-    "require": {
-        "php": "^5.6 || ^7.0",
-        "ext-mbstring": "*",
-        "paragonie/random_compat": "^2.0.11"
-    },
-    "require-dev": {
-        "phpunit/phpunit": "^5.7.27 || ^6.5.8 || ^7.1.2",
-        "zendframework/zend-coding-standard": "~1.0.0"
-    },
-    "suggest": {
-        "ext-bcmath": "If using the bcmath functionality",
-        "ext-gmp": "If using the gmp functionality"
-    },
-    "autoload": {
-        "psr-4": {
-            "Zend\\Math\\": "src/"
-        }
-    },
-    "autoload-dev": {
-        "psr-4": {
-            "ZendTest\\Math\\": "test/"
-        }
+        "docs": "https://docs.laminas.dev/laminas-math/",
+        "issues": "https://github.com/laminas/laminas-math/issues",
+        "source": "https://github.com/laminas/laminas-math",
+        "rss": "https://github.com/laminas/laminas-math/releases.atom",
+        "chat": "https://laminas.dev/chat",
+        "forum": "https://discourse.laminas.dev"
     },
     "config": {
         "sort-packages": true
@@ -45,6 +22,30 @@
         "branch-alias": {
             "dev-master": "3.1.x-dev",
             "dev-develop": "3.2.x-dev"
+        }
+    },
+    "require": {
+        "php": "^5.6 || ^7.0",
+        "ext-mbstring": "*",
+        "laminas/laminas-zendframework-bridge": "^1.0",
+        "paragonie/random_compat": "^2.0.11"
+    },
+    "require-dev": {
+        "laminas/laminas-coding-standard": "~1.0.0",
+        "phpunit/phpunit": "^5.7.27 || ^6.5.8 || ^7.1.2"
+    },
+    "suggest": {
+        "ext-bcmath": "If using the bcmath functionality",
+        "ext-gmp": "If using the gmp functionality"
+    },
+    "autoload": {
+        "psr-4": {
+            "Laminas\\Math\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "LaminasTest\\Math\\": "test/"
         }
     },
     "scripts": {
@@ -56,5 +57,8 @@
         "cs-fix": "phpcbf",
         "test": "phpunit --colors=always",
         "test-coverage": "phpunit --colors=always --coverage-clover clover.xml"
+    },
+    "replace": {
+        "zendframework/zend-math": "self.version"
     }
 }
