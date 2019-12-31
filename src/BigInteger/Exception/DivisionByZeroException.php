@@ -1,20 +1,18 @@
 <?php
+
 /**
- * Zend Framework (http://framework.zend.com/)
- *
- * @link      http://github.com/zendframework/zf2 for the canonical source repository
- * @copyright Copyright (c) 2005-2013 Zend Technologies USA Inc. (http://www.zend.com)
- * @license   http://framework.zend.com/license/new-bsd New BSD License
- * @package   Zend_Math
+ * @see       https://github.com/laminas/laminas-math for the canonical source repository
+ * @copyright https://github.com/laminas/laminas-math/blob/master/COPYRIGHT.md
+ * @license   https://github.com/laminas/laminas-math/blob/master/LICENSE.md New BSD License
  */
 
-namespace Zend\Math\BigInteger\Exception;
+namespace Laminas\Math\BigInteger\Exception;
 
 /**
  * Division by zero exception
  *
- * @category   Zend
- * @package    Zend_Math
+ * @category   Laminas
+ * @package    Laminas_Math
  * @subpackage BigInteger
  */
 class DivisionByZeroException extends RuntimeException implements ExceptionInterface
