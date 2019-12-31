@@ -6,7 +6,7 @@ how to prepare for migration.
 ## New requirements for random number generation
 
 For version 3, we changed the random number generator strategy of
-`Zend\Math\Rand` using the `random_int()` ad `random_bytes()` functions of PHP
+`Laminas\Math\Rand` using the `random_int()` ad `random_bytes()` functions of PHP
 7. For users still on PHP 5.5+, we now require the
 [random_compact](https://github.com/paragonie/random_compat) library, which
 provides a polyfill for these new PHP 7 functions.
@@ -16,7 +16,7 @@ provides a polyfill for these new PHP 7 functions.
 Starting with version 3, we now require
 the [mbstring](http://php.net/mbstring)
 extension. We added this requirement to ensure that all
-string manipulations inside zend-math are binary-safe.
+string manipulations inside laminas-math are binary-safe.
 
 Internally, we replace all `strlen()` and `substr()` functions with the
 equivalent `mb_strlen()` and `mb_substr()` functions, and require `8bit`
@@ -24,7 +24,7 @@ encoding.
 
 ## We removed the $strong optional parameter
 
-In `Zend\Math\Rand`, we removed the usage of the `$strong` optional paramter for
+In `Laminas\Math\Rand`, we removed the usage of the `$strong` optional paramter for
 the random number generator. By default, all random numbers produced in version
 3 releases will use a secure pseudo-random number generator
 ([CSPRNG](https://en.wikipedia.org/wiki/Cryptographically_secure_pseudorandom_number_generator)).
@@ -49,18 +49,18 @@ functions after migrating.
 
 Several methods now throw exceptions for error situations:
 
-- `Zend\Math\Rand::getBytes($length)` will no longer return a boolean `false` when
-  `$length <= 0`. Instead, it will now throw a `Zend\Math\Exception\DomainException`.
-- `Zend\Math\Rand::getBytes($length)` will now throw a
-  `Zend\Math\Exception\InvalidArgumentException` if the `$length` parameter is
+- `Laminas\Math\Rand::getBytes($length)` will no longer return a boolean `false` when
+  `$length <= 0`. Instead, it will now throw a `Laminas\Math\Exception\DomainException`.
+- `Laminas\Math\Rand::getBytes($length)` will now throw a
+  `Laminas\Math\Exception\InvalidArgumentException` if the `$length` parameter is
   not an integer.
-- `Zend\Math\Rand::getInteger($min, $max)` will now throw a
-  `Zend\Math\Exception\InvalidArgumentException` if either parameter is not an
+- `Laminas\Math\Rand::getInteger($min, $max)` will now throw a
+  `Laminas\Math\Exception\InvalidArgumentException` if either parameter is not an
   integer.
 
 Additionally, in cases where you are not using PHP 7 and your PHP environment
 does not provide a secure random source, we now throw a
-`Zend\Math\Exception\RuntimeException` with the following message:
+`Laminas\Math\Exception\RuntimeException` with the following message:
 
 ```text
 This PHP environment doesn't support secure random number generation.

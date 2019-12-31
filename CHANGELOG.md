@@ -10,13 +10,13 @@ for full details.
 
 ### Added
 
-- [#18](https://github.com/zendframework/zend-math/pull/18) adds a requirement
+- [zendframework/zend-math#18](https://github.com/zendframework/zend-math/pull/18) adds a requirement
   on `ext/mbstring`.
-- [#18](https://github.com/zendframework/zend-math/pull/18) adds a requirement
+- [zendframework/zend-math#18](https://github.com/zendframework/zend-math/pull/18) adds a requirement
   on `paragonie/random_compat` for polyfilling PHP 7's `random_bytes()` and
   `random_int()` functionality.
-- [#20](https://github.com/zendframework/zend-math/pull/20) prepares and
-  publishes documentation to https://zendframework.github.io/zend-math/
+- [zendframework/zend-math#20](https://github.com/zendframework/zend-math/pull/20) prepares and
+  publishes documentation to https://docs.laminas.dev/laminas-math/
 
 ### Deprecated
 
@@ -24,7 +24,7 @@ for full details.
 
 ### Removed
 
-- [#18](https://github.com/zendframework/zend-math/pull/18) removes the
+- [zendframework/zend-math#18](https://github.com/zendframework/zend-math/pull/18) removes the
   `$strong` optional parameter from the following methods, as the component now
   ensures a cryptographically secure pseudo-random number generator is always
   used:
@@ -33,17 +33,17 @@ for full details.
   - `Rand::getInteger($min, $max)`
   - `Rand::getFloat()`
   - `Rand::getString($length, $charlist = null)`
-- [#18](https://github.com/zendframework/zend-math/pull/18) removes the
+- [zendframework/zend-math#18](https://github.com/zendframework/zend-math/pull/18) removes the
   requirement on ircmaxell/random-lib, in favor of paragonie/random_compat (as
   noted above); this also resulted in the removal of:
   - direct usage of mcrypt (this is delegated to paragonie/random_compat)
   - direct usage of `/dev/urandom` or `COM` (this is delegated to
     `random_bytes()` and/or paragonie/random_compat)
-  - `Zend\Math\Source\HashTiming`, as it was used only with `RandomLib`.
+  - `Laminas\Math\Source\HashTiming`, as it was used only with `RandomLib`.
 
 ### Fixed
 
-- [#18](https://github.com/zendframework/zend-math/pull/18) updates the code to
+- [zendframework/zend-math#18](https://github.com/zendframework/zend-math/pull/18) updates the code to
   replace usage of `substr()` and `strlen()` with `mb_substr()` and
   `mb_strlen()`; these ensure that all string manipulations within the component
   remain binary safe.
@@ -64,8 +64,8 @@ for full details.
 
 ### Fixed
 
-- [#16](https://github.com/zendframework/zend-math/pull/16) updates
-  `Zend\Math\Rand` to use PHP 7's `random_bytes()` and `random_int()` or mcrypt
+- [zendframework/zend-math#16](https://github.com/zendframework/zend-math/pull/16) updates
+  `Laminas\Math\Rand` to use PHP 7's `random_bytes()` and `random_int()` or mcrypt
   when detected, and fallback to `ircmaxell/RandomLib` otherwise, instead of using
   openssl. This provides more cryptographically secure pseudo-random generation.
 
@@ -82,8 +82,8 @@ for full details.
 
 ### Removed
 
-- [#5](https://github.com/zendframework/zend-math/pull/5) removes
-  `Zend\Math\BigInteger\AdapterPluginManager`, and thus the zend-servicemanager
+- [zendframework/zend-math#5](https://github.com/zendframework/zend-math/pull/5) removes
+  `Laminas\Math\BigInteger\AdapterPluginManager`, and thus the laminas-servicemanager
   dependency. Essentially, no other possible plugins are likely to ever be
   needed outside of those shipped with the component, so using a plugin manager
   was overkill. The functionality for loading the two shipped adapters has been
@@ -108,7 +108,7 @@ for full details.
 
 ### Fixed
 
-- [#7](https://github.com/zendframework/zend-math/pull/7) fixes how base
+- [zendframework/zend-math#7](https://github.com/zendframework/zend-math/pull/7) fixes how base
   conversions are accomplished within the bcmath adapter, ensuring PHP's native
   `base_convert()` is used for base36 and below, while continuing to use the
   base62 alphabet for anything above.

@@ -1,18 +1,17 @@
 <?php
+
 /**
- * Zend Framework (http://framework.zend.com/)
- *
- * @link      http://github.com/zendframework/zf2 for the canonical source repository
- * @copyright Copyright (c) 2005-2015 Zend Technologies USA Inc. (http://www.zend.com)
- * @license   http://framework.zend.com/license/new-bsd New BSD License
+ * @see       https://github.com/laminas/laminas-math for the canonical source repository
+ * @copyright https://github.com/laminas/laminas-math/blob/master/COPYRIGHT.md
+ * @license   https://github.com/laminas/laminas-math/blob/master/LICENSE.md New BSD License
  */
 
-namespace ZendTest\Math;
+namespace LaminasTest\Math;
 
-use Zend\Math\Rand;
+use Laminas\Math\Rand;
 
 /**
- * @group      Zend_Math
+ * @group      Laminas_Math
  */
 class RandTest extends \PHPUnit_Framework_TestCase
 {
@@ -34,7 +33,7 @@ class RandTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException Zend\Math\Exception\InvalidArgumentException
+     * @expectedException Laminas\Math\Exception\InvalidArgumentException
      * @expectedExceptionMessage Invalid parameter provided to getBytes(length)
      */
     public function testWrongRandBytesParam()
@@ -43,7 +42,7 @@ class RandTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException Zend\Math\Exception\DomainException
+     * @expectedException Laminas\Math\Exception\DomainException
      * @expectedExceptionMessage The length must be a positive number in getBytes(length)
      */
     public function testZeroRandBytesParam()
@@ -52,7 +51,7 @@ class RandTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException Zend\Math\Exception\DomainException
+     * @expectedException Laminas\Math\Exception\DomainException
      * @expectedExceptionMessage The length must be a positive number in getBytes(length)
      */
     public function testNegativeRandBytesParam()
@@ -117,7 +116,7 @@ class RandTest extends \PHPUnit_Framework_TestCase
     {
         try {
             $test = Rand::getBytes(1);
-        } catch (\Zend\Math\Exception\RuntimeException $e) {
+        } catch (\Laminas\Math\Exception\RuntimeException $e) {
             $this->markTestSkipped($e->getMessage());
         }
 
@@ -150,7 +149,7 @@ class RandTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException Zend\Math\Exception\InvalidArgumentException
+     * @expectedException Laminas\Math\Exception\InvalidArgumentException
      * @expectedExceptionMessage Invalid parameters provided to getInteger(min, max)
      */
     public function testWrongFirstParamGetInteger()
@@ -159,7 +158,7 @@ class RandTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException Zend\Math\Exception\InvalidArgumentException
+     * @expectedException Laminas\Math\Exception\InvalidArgumentException
      * @expectedExceptionMessage Invalid parameters provided to getInteger(min, max)
      */
     public function testWrongSecondParamGetInteger()
@@ -168,7 +167,7 @@ class RandTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException Zend\Math\Exception\DomainException
+     * @expectedException Laminas\Math\Exception\DomainException
      * @expectedExceptionMessage The min parameter must be lower than max in getInteger(min, max)
      */
     public function testIntegerRangeFail()

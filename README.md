@@ -1,13 +1,13 @@
-# zend-math
+# laminas-math
 
-[![Build Status](https://secure.travis-ci.org/zendframework/zend-math.svg?branch=master)](https://secure.travis-ci.org/zendframework/zend-math)
-[![Coverage Status](https://coveralls.io/repos/zendframework/zend-math/badge.svg?branch=master)](https://coveralls.io/r/zendframework/zend-math?branch=master)
+[![Build Status](https://travis-ci.org/laminas/laminas-math.svg?branch=master)](https://travis-ci.org/laminas/laminas-math)
+[![Coverage Status](https://coveralls.io/repos/laminas/laminas-math/badge.svg?branch=master)](https://coveralls.io/r/laminas/laminas-math?branch=master)
 
-`Zend\Math` provides general mathematical functions. So far the supported
+`Laminas\Math` provides general mathematical functions. So far the supported
 functionalities are:
 
-- `Zend\Math\Rand`, a random number generator;
-- `Zend\Math\BigInteger`, a library to manage big integers.
+- `Laminas\Math\Rand`, a random number generator;
+- `Laminas\Math\BigInteger`, a library to manage big integers.
 
 # Migration notes from v2 to v3
 
@@ -16,5 +16,5 @@ of potential BC breaks and/or API differences you may need to be aware of.
 
 # Miscellany
 
-- File issues at https://github.com/zendframework/zend-math/issues
-- Documentation is at https://zendframework.github.io/zend-math/
+- File issues at https://github.com/laminas/laminas-math/issues
+- Documentation is at https://docs.laminas.dev/laminas-math/
