@@ -1,19 +1,18 @@
 <?php
+
 /**
- * Zend Framework (http://framework.zend.com/)
- *
- * @link      http://github.com/zendframework/zf2 for the canonical source repository
- * @copyright Copyright (c) 2005-2013 Zend Technologies USA Inc. (http://www.zend.com)
- * @license   http://framework.zend.com/license/new-bsd New BSD License
+ * @see       https://github.com/laminas/laminas-math for the canonical source repository
+ * @copyright https://github.com/laminas/laminas-math/blob/master/COPYRIGHT.md
+ * @license   https://github.com/laminas/laminas-math/blob/master/LICENSE.md New BSD License
  */
 
-namespace ZendTest\Math;
+namespace LaminasTest\Math;
 
-use Zend\Math;
-use Zend\Math\Rand;
+use Laminas\Math;
+use Laminas\Math\Rand;
 
 /**
- * @group      Zend_Math
+ * @group      Laminas_Math
  */
 class RandTest extends \PHPUnit_Framework_TestCase
 {
@@ -57,7 +56,7 @@ class RandTest extends \PHPUnit_Framework_TestCase
     {
         try {
             $test = Rand::getBytes(1, $strong);
-        } catch (\Zend\Math\Exception\RuntimeException $e) {
+        } catch (\Laminas\Math\Exception\RuntimeException $e) {
             $this->markTestSkipped($e->getMessage());
         }
 
@@ -92,7 +91,7 @@ class RandTest extends \PHPUnit_Framework_TestCase
     public function testIntegerRangeFail()
     {
         $this->setExpectedException(
-            'Zend\Math\Exception\DomainException',
+            'Laminas\Math\Exception\DomainException',
             'min parameter must be lower than max parameter'
         );
         $rand = Rand::getInteger(100, 0);
