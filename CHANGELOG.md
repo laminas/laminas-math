@@ -18,7 +18,7 @@ All notable changes to this project will be documented in this file, in reverse 
 
 ### Fixed
 
-- [#7](https://github.com/zendframework/zend-math/pull/7) fixes how base
+- [zendframework/zend-math#7](https://github.com/zendframework/zend-math/pull/7) fixes how base
   conversions are accomplished within the bcmath adapter, ensuring PHP's native
   `base_convert()` is used for base36 and below, while continuing to use the
   base62 alphabet for anything above.
