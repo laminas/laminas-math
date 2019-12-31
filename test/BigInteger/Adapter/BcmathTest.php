@@ -1,13 +1,14 @@
 <?php
+
 /**
- * @link      http://github.com/zendframework/zend-math for the canonical source repository
- * @copyright Copyright (c) 2005-2018 Zend Technologies USA Inc. (http://www.zend.com)
- * @license   http://framework.zend.com/license/new-bsd New BSD License
+ * @see       https://github.com/laminas/laminas-math for the canonical source repository
+ * @copyright https://github.com/laminas/laminas-math/blob/master/COPYRIGHT.md
+ * @license   https://github.com/laminas/laminas-math/blob/master/LICENSE.md New BSD License
  */
 
-namespace ZendTest\Math\BigInteger\Adapter;
+namespace LaminasTest\Math\BigInteger\Adapter;
 
-use Zend\Math\BigInteger\Adapter\Bcmath;
+use Laminas\Math\BigInteger\Adapter\Bcmath;
 
 class BcmathTest extends AbstractTestCase
 {
