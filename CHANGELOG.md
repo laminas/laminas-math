@@ -18,8 +18,8 @@ All notable changes to this project will be documented in this file, in reverse 
 
 ### Fixed
 
-- [#16](https://github.com/zendframework/zend-math/pull/16) updates
-  `Zend\Math\Rand` to use PHP 7's `random_bytes()` and `random_int()` or mcrypt
+- [zendframework/zend-math#16](https://github.com/zendframework/zend-math/pull/16) updates
+  `Laminas\Math\Rand` to use PHP 7's `random_bytes()` and `random_int()` or mcrypt
   when detected, and fallback to `ircmaxell/RandomLib` otherwise, instead of using
   openssl. This provides more cryptographically secure pseudo-random generation.
 
@@ -36,8 +36,8 @@ All notable changes to this project will be documented in this file, in reverse 
 
 ### Removed
 
-- [#5](https://github.com/zendframework/zend-math/pull/5) removes
-  `Zend\Math\BigInteger\AdapterPluginManager`, and thus the zend-servicemanager
+- [zendframework/zend-math#5](https://github.com/zendframework/zend-math/pull/5) removes
+  `Laminas\Math\BigInteger\AdapterPluginManager`, and thus the laminas-servicemanager
   dependency. Essentially, no other possible plugins are likely to ever be
   needed outside of those shipped with the component, so using a plugin manager
   was overkill. The functionality for loading the two shipped adapters has been
@@ -62,7 +62,7 @@ All notable changes to this project will be documented in this file, in reverse 
 
 ### Fixed
 
-- [#7](https://github.com/zendframework/zend-math/pull/7) fixes how base
+- [zendframework/zend-math#7](https://github.com/zendframework/zend-math/pull/7) fixes how base
   conversions are accomplished within the bcmath adapter, ensuring PHP's native
   `base_convert()` is used for base36 and below, while continuing to use the
   base62 alphabet for anything above.
