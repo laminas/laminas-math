@@ -2,8 +2,11 @@ docs_dir: docs/book
 site_dir: docs/html
 nav:
     - index.md
-    - { Intro: intro.md }
-    - { Reference: [{ 'Random Number Generation': rand.md }, { 'Big Integers': big-integer.md }, { Migration: migration.md }] }
+    - Intro: intro.md
+    - Reference:
+        - "Random Number Generation": rand.md
+        - "Big Integers": big-integer.md
+        - Migration: migration.md
 site_name: laminas-math
 site_description: laminas-math
 repo_url: 'https://github.com/laminas/laminas-math'
