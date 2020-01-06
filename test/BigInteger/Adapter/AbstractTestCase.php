@@ -363,7 +363,7 @@ abstract class AbstractTestCase extends TestCase
                 'FV31FwuflLcgcehcYduXOp0sUSL/frxiCjv0lGfFOReOCZjSvGUnltTXMgppIO4p2Ij5dSQolfwW9/xby+yLFg6s=',
 
                 // negative binary, two's complement
-                '/yMGxfR3xo0T8eZnZTpdMc7x4siOgXJqjkSJ3IznmRnhCKXR2HZ0+oBnbj0dhZxjwNZJ9+un4yxNNcZ5LLaminasI+q' .
+                '/yMGxfR3xo0T8eZnZTpdMc7x4siOgXJqjkSJ3IznmRnhCKXR2HZ0+oBnbj0dhZxjwNZJ9+un4yxNNcZ5LZfI+q' .
                 'iCuj0YGtI344Xo54kaMVi067dAIFDnfXEC2uYOsbocfZnLUOa2GkrKM31lt8R1id3Borb12oD6QgDpDQTdOnxV',
             ],
         ];
