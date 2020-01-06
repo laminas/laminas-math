@@ -1,6 +1,6 @@
 # laminas-math
 
-[![Build Status](https://travis-ci.org/laminas/laminas-math.svg?branch=master)](https://travis-ci.org/laminas/laminas-math)
+[![Build Status](https://travis-ci.com/laminas/laminas-math.svg?branch=master)](https://travis-ci.com/laminas/laminas-math)
 [![Coverage Status](https://coveralls.io/repos/github/laminas/laminas-math/badge.svg?branch=master)](https://coveralls.io/github/laminas/laminas-math?branch=master)
 
 `Laminas\Math` provides general mathematical functions. So far the supported
