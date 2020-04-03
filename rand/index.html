@@ -314,22 +314,22 @@ regarding extensions it can use.</p>
 </ul>
 <h2 id="examples">Examples</h2>
 <p>The example below demonstrates generating random data using <code>Laminas\Math\Rand</code>:</p>
-<pre class=codehilite><code class=language-php>use Laminas\Math\Rand;
+<pre class="highlight"><code class="language-php">use Laminas\Math\Rand;
 
 $bytes = Rand::getBytes(32);
-printf(&quot;Random bytes (in Base64): %s\n&quot;, base64_encode($bytes));
+printf("Random bytes (in Base64): %s\n", base64_encode($bytes));
 
 $boolean = Rand::getBoolean();
-printf(&quot;Random boolean: %s\n&quot;, $boolean ? 'true' : 'false');
+printf("Random boolean: %s\n", $boolean ? 'true' : 'false');
 
 $integer = Rand::getInteger(0, 1000);
-printf(&quot;Random integer in [0-1000]: %d\n&quot;, $integer);
+printf("Random integer in [0-1000]: %d\n", $integer);
 
 $float = Rand::getFloat();
-printf(&quot;Random float in [0-1): %f\n&quot;, $float);
+printf("Random float in [0-1): %f\n", $float);
 
 $string = Rand::getString(32, 'abcdefghijklmnopqrstuvwxyz');
-printf(&quot;Random string in latin alphabet: %s\n&quot;, $string);</code></pre>
+printf("Random string in latin alphabet: %s\n", $string);</code></pre>
 
 
 
