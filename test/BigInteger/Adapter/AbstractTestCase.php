@@ -179,7 +179,7 @@ abstract class AbstractTestCase extends TestCase
 
     /**
      * Data provider for init() tests
-     * Expects iit() to return false on these values
+     * Expects init() to return false on these values
      *
      * @return array
      */

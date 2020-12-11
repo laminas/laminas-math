@@ -12,7 +12,7 @@ use Laminas\Math\BigInteger\Adapter\Gmp;
 
 class GmpTest extends AbstractTestCase
 {
-    public function setUp()
+    public function setUp(): void
     {
         if (! extension_loaded('gmp')) {
             $this->markTestSkipped('Missing ext/gmp');
