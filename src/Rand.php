@@ -113,7 +113,7 @@ abstract class Rand
         $bytes    = static::getBytes(7);
         $bytes[6] = $bytes[6] | chr(0xF0);
         $bytes   .= chr(63); // exponent bias (1023)
-        list(, $float) = unpack('d', $bytes);
+        $float = unpack('d', $bytes)[1];
 
         return ($float - 1);
     }
