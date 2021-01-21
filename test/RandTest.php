@@ -18,7 +18,7 @@ class RandTest extends TestCase
 {
     public static $customRandomBytes = false;
 
-    public function tearDown()
+    public function tearDown(): void
     {
         self::$customRandomBytes = false;
     }
@@ -72,7 +72,7 @@ class RandTest extends TestCase
     {
         for ($length = 1; $length < 512; $length++) {
             $rand = Rand::getBoolean();
-            $this->assertInternalType('bool', $rand);
+            $this->assertIsBool($rand);
         }
     }
 
@@ -88,7 +88,7 @@ class RandTest extends TestCase
 
         for ($j = 0; $j < $cycles; $j++) {
             $value = Rand::getInteger($min, $max);
-            $this->assertInternalType('integer', $value);
+            $this->assertIsInt($value);
             $this->assertGreaterThanOrEqual($min, $value);
             $this->assertLessThanOrEqual($max, $value);
             $counter[$value]++;
@@ -194,7 +194,7 @@ class RandTest extends TestCase
     {
         for ($length = 1; $length < 512; $length++) {
             $rand = Rand::getFloat();
-            $this->assertInternalType('float', $rand);
+            $this->assertIsFloat($rand);
             $this->assertGreaterThanOrEqual(0, $rand);
             $this->assertLessThanOrEqual(1, $rand);
         }

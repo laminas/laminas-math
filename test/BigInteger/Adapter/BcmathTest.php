@@ -12,7 +12,7 @@ use Laminas\Math\BigInteger\Adapter\Bcmath;
 
 class BcmathTest extends AbstractTestCase
 {
-    public function setUp()
+    public function setUp(): void
     {
         if (! extension_loaded('bcmath')) {
             $this->markTestSkipped('Missing ext/bcmath');
