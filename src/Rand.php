@@ -42,13 +42,6 @@ abstract class Rand
                 0,
                 $e
             );
-        } catch (\Exception $e) {
-            throw new Exception\RuntimeException(
-                'This PHP environment doesn\'t support secure random number generation. ' .
-                'Please consider upgrading to PHP 7',
-                0,
-                $e
-            );
         }
     }
 
@@ -87,14 +80,6 @@ abstract class Rand
                 0,
                 $e
             );
-        } catch (\Exception $e) {
-            throw new Exception\RuntimeException(
-                'This PHP environment doesn\'t support secure random number generation. ' .
-                'Please consider upgrading to PHP 7',
-                0,
-                $e
-            );
-        }
     }
 
     /**
