@@ -52,6 +52,8 @@ class Gmp implements AdapterInterface
             $res = gmp_init($sign . $operand, $base);
         } catch (\TypeError $e) {
             $res = false;
+        } catch (\ValueError $e) {
+            $res = false;
         }
 
         restore_error_handler();
