@@ -24,6 +24,28 @@ All notable changes to this project will be documented in this file, in reverse 
 
 - Nothing.
 
+## 3.3.2 - TBD
+
+### Added
+
+- Nothing.
+
+### Changed
+
+- Nothing.
+
+### Deprecated
+
+- Nothing.
+
+### Removed
+
+- Nothing.
+
+### Fixed
+
+- Nothing.
+
 ## 3.3.1 - 2021-01-22
 
 ### Release Notes for [3.3.1](https://github.com/laminas/laminas-math/milestone/2)
@@ -38,7 +60,7 @@ All notable changes to this project will be documented in this file, in reverse 
 
 #### Bug
 
-- [8: properly catch `ValueError` thrown in `gmp&#95;init()`](https://github.com/laminas/laminas-math/pull/8) thanks to @remicollet
+ - [8: properly catch `ValueError` thrown in `gmp&#95;init()`](https://github.com/laminas/laminas-math/pull/8) thanks to @remicollet
 
 ## 3.3.0 - 2021-01-21
 
@@ -54,7 +76,7 @@ All notable changes to this project will be documented in this file, in reverse 
 
 - [6: Access array offset directly without `list()` ](https://github.com/laminas/laminas-math/pull/6) thanks to @glensc
 - [5: Add PHP 8.0 support](https://github.com/laminas/laminas-math/pull/5) thanks to @bfoosness and @boesing
- 
+
 ## 3.2.0 - 2018-12-04
 
 ### Added
