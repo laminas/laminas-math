@@ -80,6 +80,7 @@ abstract class Rand
                 0,
                 $e
             );
+        }
     }
 
     /**
