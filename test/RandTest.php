@@ -64,7 +64,7 @@ class RandTest extends TestCase
     public function testUnsupportedPlatform()
     {
         self::$customRandomBytes = true;
-        $this->expectException(RuntimeException::class);
+        $this->expectException(Exception::class);
         $rand = Rand::getBytes(2);
     }
 
