@@ -95,4 +95,3 @@ printf("Length in bytes: %d\n", strlen($byte));
 The above generates the binary representation of the big integer number using the
 default binary format, and the [two's complement](http://en.wikipedia.org/wiki/Two%27s_complement)
 representation (specified with the `true` parameter in the `intToBin` function).
-
