@@ -25,13 +25,13 @@
         }
     },
     "require": {
-        "php": "^7.3 || ~8.0.0",
+        "php": "~8.0.0 || ~8.1.0",
         "ext-mbstring": "*",
         "laminas/laminas-zendframework-bridge": "^1.0"
     },
     "require-dev": {
         "laminas/laminas-coding-standard": "~1.0.0",
-        "phpunit/phpunit": "^9.3"
+        "phpunit/phpunit": "^9.5.5"
     },
     "suggest": {
         "ext-bcmath": "If using the bcmath functionality",
