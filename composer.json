@@ -26,8 +26,7 @@
     },
     "require": {
         "php": "^7.3 || ~8.0.0 || ~8.1.0",
-        "ext-mbstring": "*",
-        "laminas/laminas-zendframework-bridge": "^1.0"
+        "ext-mbstring": "*"
     },
     "require-dev": {
         "laminas/laminas-coding-standard": "~1.0.0",
@@ -60,7 +59,7 @@
         "test": "phpunit --colors=always",
         "test-coverage": "phpunit --colors=always --coverage-clover clover.xml"
     },
-    "replace": {
-        "zendframework/zend-math": "^3.2.0"
+    "conflict": {
+        "zendframework/zend-math": "*"
     }
 }
