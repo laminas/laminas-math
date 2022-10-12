@@ -67,7 +67,7 @@ This PHP environment doesn't support secure random number generation.
 Please consider upgrading to PHP 7.
 ```
 
-This message should appear if your are using PHP versions less than 7 on Windows
+This message should appear if you are using PHP versions less than 7 on Windows
 machines without one of the following extensions or libraries installed:
 
 - [Mcrypt](http://php.net/mcrypt)
