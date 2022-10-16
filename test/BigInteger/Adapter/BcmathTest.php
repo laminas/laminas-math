@@ -1,8 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
 namespace LaminasTest\Math\BigInteger\Adapter;
 
 use Laminas\Math\BigInteger\Adapter\Bcmath;
+
+use function extension_loaded;
 
 class BcmathTest extends AbstractTestCase
 {

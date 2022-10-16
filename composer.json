@@ -16,7 +16,10 @@
         "forum": "https://discourse.laminas.dev"
     },
     "config": {
-        "sort-packages": true
+        "sort-packages": true,
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        }
     },
     "extra": {
         "branch-alias": {
@@ -25,12 +28,12 @@
         }
     },
     "require": {
-        "php": "^7.3 || ~8.0.0 || ~8.1.0",
+        "php": "~8.0.0 || ~8.1.0 || ~8.2.0",
         "ext-mbstring": "*"
     },
     "require-dev": {
-        "laminas/laminas-coding-standard": "~1.0.0",
-        "phpunit/phpunit": "^9.5.5"
+        "laminas/laminas-coding-standard": "~2.4.0",
+        "phpunit/phpunit": "~9.5.25"
     },
     "suggest": {
         "ext-bcmath": "If using the bcmath functionality",

@@ -1,14 +1,15 @@
 <?php
 
-/**
- * @see       https://github.com/laminas/laminas-math for the canonical source repository
- * @copyright https://github.com/laminas/laminas-math/blob/master/COPYRIGHT.md
- * @license   https://github.com/laminas/laminas-math/blob/master/LICENSE.md New BSD License
- */
+declare(strict_types=1);
+
 namespace Laminas\Math;
 
 use Exception;
 use LaminasTest\Math\RandTest;
+
+/**
+ * @see       https://github.com/laminas/laminas-math for the canonical source repository
+ */
 
 /**
  * Generate random bytes with $length size or throw an Exception,
