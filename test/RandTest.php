@@ -1,21 +1,28 @@
 <?php
 
-/**
- * @see       https://github.com/laminas/laminas-math for the canonical source repository
- * @copyright https://github.com/laminas/laminas-math/blob/master/COPYRIGHT.md
- * @license   https://github.com/laminas/laminas-math/blob/master/LICENSE.md New BSD License
- */
+declare(strict_types=1);
+
 namespace LaminasTest\Math;
 
-use Exception;
 use Laminas\Math\Exception\DomainException;
 use Laminas\Math\Exception\InvalidArgumentException;
-use Laminas\Math\Exception\RuntimeException;
 use Laminas\Math\Rand;
 use PHPUnit\Framework\TestCase;
 
+use function mb_strlen;
+use function preg_match;
+use function sprintf;
+use function str_repeat;
+use function strlen;
+
+use const PHP_INT_MAX;
+
+/**
+ * @see       https://github.com/laminas/laminas-math for the canonical source repository
+ */
 class RandTest extends TestCase
 {
+    /** @var bool */
     public static $customRandomBytes = false;
 
     public function tearDown(): void
@@ -23,15 +30,18 @@ class RandTest extends TestCase
         self::$customRandomBytes = false;
     }
 
+    /**
+     * @return array[]
+     */
     public static function provideRandInt()
     {
         return [
             [2, 1, 10000, 100, 0.9, 1.1],
-            [2, 1, 10000, 100, 0.8, 1.2]
+            [2, 1, 10000, 100, 0.8, 1.2],
         ];
     }
 
-    public function testRandBytes()
+    public function testRandBytes(): void
     {
         for ($length = 1; $length < 4096; $length++) {
             $rand = Rand::getBytes($length);
@@ -40,35 +50,28 @@ class RandTest extends TestCase
         }
     }
 
-    public function testWrongRandBytesParam()
+    public function testWrongRandBytesParam(): void
     {
         $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage('Invalid parameter provided to getBytes(length)');
         Rand::getBytes('foo');
     }
 
-    public function testZeroRandBytesParam()
+    public function testZeroRandBytesParam(): void
     {
         $this->expectException(DomainException::class);
         $this->expectExceptionMessage('The length must be a positive number in getBytes(length)');
         Rand::getBytes(0);
     }
 
-    public function testNegativeRandBytesParam()
+    public function testNegativeRandBytesParam(): void
     {
         $this->expectException(DomainException::class);
         $this->expectExceptionMessage('The length must be a positive number in getBytes(length)');
         Rand::getBytes(-1);
     }
 
-    public function testUnsupportedPlatform()
-    {
-        self::$customRandomBytes = true;
-        $this->expectException(Exception::class);
-        $rand = Rand::getBytes(2);
-    }
-
-    public function testRandBoolean()
+    public function testRandBoolean(): void
     {
         for ($length = 1; $length < 512; $length++) {
             $rand = Rand::getBoolean();
@@ -77,9 +80,12 @@ class RandTest extends TestCase
     }
 
     /**
+     * @param float|int $min
+     * @param float|int $max
+     * @param float|int $cycles
      * @dataProvider dataProviderForTestRandIntegerRangeTest
      */
-    public function testRandIntegerRangeTest($min, $max, $cycles)
+    public function testRandIntegerRangeTest($min, $max, $cycles): void
     {
         $counter = [];
         for ($i = $min; $i <= $max; $i++) {
@@ -119,13 +125,19 @@ class RandTest extends TestCase
      * and test if the numbers are above or below the line y=x with a
      * frequency range of [$min, $max]
      *
+     * @param int|float $num
+     * @param int|float $valid
+     * @param int|float $cycles
+     * @param int|float $tot
+     * @param int|float $min
+     * @param int|float $max
      * @dataProvider provideRandInt
      */
-    public function testRandInteger($num, $valid, $cycles, $tot, $min, $max)
+    public function testRandInteger($num, $valid, $cycles, $tot, $min, $max): void
     {
         try {
             $test = Rand::getBytes(1);
-        } catch (\Laminas\Math\Exception\RuntimeException $e) {
+        } catch (RuntimeException $e) {
             $this->markTestSkipped($e->getMessage());
         }
 
@@ -157,28 +169,28 @@ class RandTest extends TestCase
         }
     }
 
-    public function testWrongFirstParamGetInteger()
+    public function testWrongFirstParamGetInteger(): void
     {
         $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage('Invalid parameters provided to getInteger(min, max)');
         Rand::getInteger('foo', 0);
     }
 
-    public function testWrongSecondParamGetInteger()
+    public function testWrongSecondParamGetInteger(): void
     {
         $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage('Invalid parameters provided to getInteger(min, max)');
         Rand::getInteger(0, 'foo');
     }
 
-    public function testIntegerRangeFail()
+    public function testIntegerRangeFail(): void
     {
         $this->expectException(DomainException::class);
         $this->expectExceptionMessage('The min parameter must be lower than max in getInteger(min, max)');
         Rand::getInteger(100, 0);
     }
 
-    public function testIntegerRangeOverflow()
+    public function testIntegerRangeOverflow(): void
     {
         $values = 0;
         $cycles = 100;
@@ -190,7 +202,7 @@ class RandTest extends TestCase
         $this->assertNotEquals(0, $values);
     }
 
-    public function testRandFloat()
+    public function testRandFloat(): void
     {
         for ($length = 1; $length < 512; $length++) {
             $rand = Rand::getFloat();
@@ -200,7 +212,7 @@ class RandTest extends TestCase
         }
     }
 
-    public function testGetString()
+    public function testGetString(): void
     {
         for ($length = 1; $length < 512; $length++) {
             $rand = Rand::getString($length, '0123456789abcdef');
@@ -209,7 +221,7 @@ class RandTest extends TestCase
         }
     }
 
-    public function testGetStringBase64()
+    public function testGetStringBase64(): void
     {
         for ($length = 1; $length < 512; $length++) {
             $rand = Rand::getString($length);
@@ -218,13 +230,13 @@ class RandTest extends TestCase
         }
     }
 
-    public function testGetNegativeSizeStringExpectException()
+    public function testGetNegativeSizeStringExpectException(): void
     {
         $this->expectException(DomainException::class);
         $rand = Rand::getString(-1);
     }
 
-    public function testGetStringWithOneCharacter()
+    public function testGetStringWithOneCharacter(): void
     {
         for ($length = 1; $length < 512; $length++) {
             $rand = Rand::getString($length, 'a');

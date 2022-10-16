@@ -1,11 +1,17 @@
 <?php
 
+declare(strict_types=1);
+
 namespace LaminasTest\Math\BigInteger;
 
 use Laminas\Math\BigInteger\Adapter\AdapterInterface;
 use Laminas\Math\BigInteger\Adapter\Bcmath;
+use Laminas\Math\BigInteger\Adapter\Gmp;
 use Laminas\Math\BigInteger\BigInteger as BigInt;
+use Laminas\Math\Exception\ExceptionInterface;
 use PHPUnit\Framework\TestCase;
+
+use function extension_loaded;
 
 class BigIntegerTest extends TestCase
 {
@@ -16,7 +22,7 @@ class BigIntegerTest extends TestCase
         }
 
         $bigInt = BigInt::factory('Bcmath');
-        $this->assertInstanceOf('Laminas\Math\BigInteger\Adapter\Bcmath', $bigInt);
+        $this->assertInstanceOf(Bcmath::class, $bigInt);
     }
 
     public function testFactoryCreatesGmpAdapter()
@@ -26,7 +32,7 @@ class BigIntegerTest extends TestCase
         }
 
         $bigInt = BigInt::factory('Gmp');
-        $this->assertInstanceOf('Laminas\Math\BigInteger\Adapter\Gmp', $bigInt);
+        $this->assertInstanceOf(Gmp::class, $bigInt);
     }
 
     public function testFactoryUsesDefaultAdapter()
@@ -34,12 +40,12 @@ class BigIntegerTest extends TestCase
         if (! extension_loaded('bcmath') && ! extension_loaded('gmp')) {
             $this->markTestSkipped('Missing bcmath or gmp extensions');
         }
-        $this->assertInstanceOf('Laminas\Math\BigInteger\Adapter\AdapterInterface', BigInt::factory());
+        $this->assertInstanceOf(AdapterInterface::class, BigInt::factory());
     }
 
     public function testFactoryUnknownAdapterRaisesException()
     {
-        $this->expectException('Laminas\Math\Exception\ExceptionInterface');
+        $this->expectException(ExceptionInterface::class);
         BigInt::factory('unknown');
     }
 

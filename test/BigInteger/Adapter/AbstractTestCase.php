@@ -1,16 +1,20 @@
 <?php
 
+declare(strict_types=1);
+
 namespace LaminasTest\Math\BigInteger\Adapter;
 
 use Laminas\Math\BigInteger\Adapter\AdapterInterface;
+use Laminas\Math\BigInteger\Exception\DivisionByZeroException;
 use PHPUnit\Framework\TestCase;
+
+use function base64_decode;
+use function ltrim;
 
 abstract class AbstractTestCase extends TestCase
 {
-    /**
-     * @var AdapterInterface
-     */
-    protected $adapter = null;
+    /** @var AdapterInterface */
+    protected $adapter;
 
     /**
      * @param string $operand
@@ -140,7 +144,7 @@ abstract class AbstractTestCase extends TestCase
 
     public function testDivisionByZeroRaisesException()
     {
-        $this->expectException('Laminas\Math\BigInteger\Exception\DivisionByZeroException');
+        $this->expectException(DivisionByZeroException::class);
         $this->expectExceptionMessage('Division by zero');
         $this->adapter->div('12345', '0');
     }
@@ -333,32 +337,32 @@ abstract class AbstractTestCase extends TestCase
             ],
             [
                 // integer
-                '1551728981814736974712322577637155399157248019669154044797077953140576293785419' .
-                '1758065122742369818899372781615264663143856159582568818888995127215884267541995' .
-                '0341258706556549803580104870537681476726513255747040765857479291291572334510643' .
-                '245094715007229621094194349783925984760375594985848253359305585439638443',
+                '1551728981814736974712322577637155399157248019669154044797077953140576293785419'
+                . '1758065122742369818899372781615264663143856159582568818888995127215884267541995'
+                . '0341258706556549803580104870537681476726513255747040765857479291291572334510643'
+                . '245094715007229621094194349783925984760375594985848253359305585439638443',
 
                 // binary
-                '3Pk6C4g5cuwOGZiaxaLOMQ4dN3F+jZVxu3Yjcxhm5h73Wi4niYsFf5iRwuJ6Y5w/KbYIFFgc07LKOYbSaDc' .
-                'FV31FwuflLcgcehcYduXOp0sUSL/frxiCjv0lGfFOReOCZjSvGUnltTXMgppIO4p2Ij5dSQolfwW9/xby+yLFg6s=',
+                '3Pk6C4g5cuwOGZiaxaLOMQ4dN3F+jZVxu3Yjcxhm5h73Wi4niYsFf5iRwuJ6Y5w/KbYIFFgc07LKOYbSaDc'
+                . 'FV31FwuflLcgcehcYduXOp0sUSL/frxiCjv0lGfFOReOCZjSvGUnltTXMgppIO4p2Ij5dSQolfwW9/xby+yLFg6s=',
 
                 // binary two's complement
-                'ANz5OguIOXLsDhmYmsWizjEOHTdxfo2Vcbt2I3MYZuYe91ouJ4mLBX+YkcLiemOcPym2CBRYHNOyyjmG0mg3B' .
-                'Vd9RcLn5S3IHHoXGHblzqdLFEi/368Ygo79JRnxTkXjgmY0rxlJ5bU1zIKaSDuKdiI+XUkKJX8Fvf8W8vsixYOr',
+                'ANz5OguIOXLsDhmYmsWizjEOHTdxfo2Vcbt2I3MYZuYe91ouJ4mLBX+YkcLiemOcPym2CBRYHNOyyjmG0mg3B'
+                . 'Vd9RcLn5S3IHHoXGHblzqdLFEi/368Ygo79JRnxTkXjgmY0rxlJ5bU1zIKaSDuKdiI+XUkKJX8Fvf8W8vsixYOr',
             ],
             [
-                '-1551728981814736974712322577637155399157248019669154044797077953140576293785419' .
-                '1758065122742369818899372781615264663143856159582568818888995127215884267541995' .
-                '0341258706556549803580104870537681476726513255747040765857479291291572334510643' .
-                '245094715007229621094194349783925984760375594985848253359305585439638443',
+                '-1551728981814736974712322577637155399157248019669154044797077953140576293785419'
+                . '1758065122742369818899372781615264663143856159582568818888995127215884267541995'
+                . '0341258706556549803580104870537681476726513255747040765857479291291572334510643'
+                . '245094715007229621094194349783925984760375594985848253359305585439638443',
 
                 // binary
-                '3Pk6C4g5cuwOGZiaxaLOMQ4dN3F+jZVxu3Yjcxhm5h73Wi4niYsFf5iRwuJ6Y5w/KbYIFFgc07LKOYbSaDc' .
-                'FV31FwuflLcgcehcYduXOp0sUSL/frxiCjv0lGfFOReOCZjSvGUnltTXMgppIO4p2Ij5dSQolfwW9/xby+yLFg6s=',
+                '3Pk6C4g5cuwOGZiaxaLOMQ4dN3F+jZVxu3Yjcxhm5h73Wi4niYsFf5iRwuJ6Y5w/KbYIFFgc07LKOYbSaDc'
+                . 'FV31FwuflLcgcehcYduXOp0sUSL/frxiCjv0lGfFOReOCZjSvGUnltTXMgppIO4p2Ij5dSQolfwW9/xby+yLFg6s=',
 
                 // negative binary, two's complement
-                '/yMGxfR3xo0T8eZnZTpdMc7x4siOgXJqjkSJ3IznmRnhCKXR2HZ0+oBnbj0dhZxjwNZJ9+un4yxNNcZ5LZfI+q' .
-                'iCuj0YGtI344Xo54kaMVi067dAIFDnfXEC2uYOsbocfZnLUOa2GkrKM31lt8R1id3Borb12oD6QgDpDQTdOnxV',
+                '/yMGxfR3xo0T8eZnZTpdMc7x4siOgXJqjkSJ3IznmRnhCKXR2HZ0+oBnbj0dhZxjwNZJ9+un4yxNNcZ5LZfI+q'
+                . 'iCuj0YGtI344Xo54kaMVi067dAIFDnfXEC2uYOsbocfZnLUOa2GkrKM31lt8R1id3Borb12oD6QgDpDQTdOnxV',
             ],
         ];
     }

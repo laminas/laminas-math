@@ -2,15 +2,30 @@
 
 namespace Laminas\Math;
 
+use Error;
+use TypeError;
+
+use function base64_encode;
+use function ceil;
+use function chr;
+use function mb_strlen;
+use function mb_substr;
+use function ord;
+use function random_bytes;
+use function random_int;
+use function rtrim;
+use function str_repeat;
+use function unpack;
+
 /**
  * Pseudorandom number generator (PRNG)
  */
+// phpcs:ignore WebimpressCodingStandard.NamingConventions.AbstractClass.Prefix
 abstract class Rand
 {
-    /**
-     * @deprecated No longer used internally
-     */
-    protected static $generator = null;
+    /** @deprecated No longer used internally */
+    // phpcs:ignore SlevomatCodingStandard.TypeHints.PropertyTypeHint.MissingAnyTypeHint
+    protected static $generator;
 
     /**
      * Generate random bytes using different approaches
@@ -24,13 +39,13 @@ abstract class Rand
     {
         try {
             return random_bytes($length);
-        } catch (\TypeError $e) {
+        } catch (TypeError $e) {
             throw new Exception\InvalidArgumentException(
                 'Invalid parameter provided to getBytes(length)',
                 0,
                 $e
             );
-        } catch (\Error $e) {
+        } catch (Error $e) {
             throw new Exception\DomainException(
                 'The length must be a positive number in getBytes(length)',
                 0,
@@ -62,13 +77,13 @@ abstract class Rand
     {
         try {
             return random_int($min, $max);
-        } catch (\TypeError $e) {
+        } catch (TypeError $e) {
             throw new Exception\InvalidArgumentException(
                 'Invalid parameters provided to getInteger(min, max)',
                 0,
                 $e
             );
-        } catch (\Error $e) {
+        } catch (Error $e) {
             throw new Exception\DomainException(
                 'The min parameter must be lower than max in getInteger(min, max)',
                 0,
@@ -90,12 +105,13 @@ abstract class Rand
      */
     public static function getFloat()
     {
-        $bytes    = static::getBytes(7);
+        $bytes = static::getBytes(7);
+        // phpcs:ignore SlevomatCodingStandard.Operators.RequireCombinedAssignmentOperator.RequiredCombinedAssigmentOperator
         $bytes[6] = $bytes[6] | chr(0xF0);
         $bytes   .= chr(63); // exponent bias (1023)
-        $float = unpack('d', $bytes)[1];
+        $float    = unpack('d', $bytes)[1];
 
-        return ($float - 1);
+        return $float - 1;
     }
 
     /**
@@ -124,6 +140,7 @@ abstract class Rand
 
         $listLen = mb_strlen($charlist, '8bit');
 
+        // phpcs:ignore SlevomatCodingStandard.Operators.DisallowEqualOperators.DisallowedEqualOperator
         if ($listLen == 1) {
             return str_repeat($charlist, $length);
         }

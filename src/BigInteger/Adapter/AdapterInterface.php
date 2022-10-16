@@ -7,7 +7,7 @@ interface AdapterInterface
     /**
      * Base62 alphabet for arbitrary base conversion
      */
-    const BASE62_ALPHABET = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    public const BASE62_ALPHABET = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
     /**
      * Create adapter-specific representation of a big integer
