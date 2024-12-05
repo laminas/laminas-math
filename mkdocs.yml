@@ -8,7 +8,7 @@ nav:
         - "Big Integers": big-integer.md
         - Migration: migration.md
 site_name: laminas-math (Abandoned)
-site_description: laminas-math
+site_description: Create cryptographically secure pseudo-random numbers, and manage big integers
 repo_url: 'https://github.com/laminas/laminas-math'
 extra:
     project: Components
