@@ -39,5 +39,4 @@ you may need to be aware of.
 
 ## Miscellany
 
-- File issues at https://github.com/laminas/laminas-math/issues
 - Documentation is at https://docs.laminas.dev/laminas-math/
