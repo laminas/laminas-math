@@ -6,6 +6,7 @@
         "laminas",
         "math"
     ],
+    "abandoned": true,
     "homepage": "https://laminas.dev",
     "support": {
         "docs": "https://docs.laminas.dev/laminas-math/",
