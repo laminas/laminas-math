@@ -7,7 +7,7 @@ nav:
         - "Random Number Generation": rand.md
         - "Big Integers": big-integer.md
         - Migration: migration.md
-site_name: laminas-math
+site_name: laminas-math (Abandoned)
 site_description: laminas-math
 repo_url: 'https://github.com/laminas/laminas-math'
 extra:
